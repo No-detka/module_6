@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Кредитный калькулятор</title>
+</head>
+
+<body>
+  <ul>
+    <li>если клиенту нет 18 лет, то кредит он не получит</li>
+    <li>если клиенту от 18 до 21, то он может получить максимум 50000</li>
+    <li>если клиенту от 22 до 35, то он сможет получить максимум 400000</li>
+    <li>если клиенту от 36 до 65, то ему одобрят максимум 1000000</li>
+    <li>кредит могут выдавать суммами кратными 1000.</li>
+  </ul>
+
+  <script>
+    let userAge = prompt("Введите свой возраст");
+    let creditSum = prompt("Введите размер желаемого кредита");
+
+    //проверка на вводимый тип
+    while (isNaN(userAge)) {
+      alert("Вы ввели не число");
+      break;
+    }
+
+    +userAge;
+
+    if (userAge < 18) {
+      alert("Кредит не одобрен. Вам нет 18 лет");
+    } else if (userAge >= 18 && userAge <= 21 && creditSum <= 50000) {
+      alert(
+        `Вы можете получить кредит в размере ${creditSum - (creditSum % 1000)
+        }. Максимальная сумма кредита - 50000`
+      );
+    } else if (userAge >= 22 && userAge <= 35 && creditSum <= 400000) {
+      alert(
+        `Вы можете получить кредит в размере ${creditSum - (creditSum % 1000)
+        }. Максимальная сумма кредита - 400000`
+      );
+    } else if (userAge >= 36 && userAge <= 65 && creditSum <= 1000000) {
+      alert(
+        `Вы можете получить кредит в размере ${creditSum - (creditSum % 1000)
+        }. Максимальная сумма кредита - 1000000`
+      );
+    } else {
+      alert("Кредит не одобрен. Ознакомьтесь с условиями кредитования");
+    }
+
+  </script>
+</body>
+
+</html>
